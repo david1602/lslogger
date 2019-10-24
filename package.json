@@ -1,0 +1,28 @@
+{
+    "name": "lslogger",
+    "version": "1.0.0",
+    "description": "Logs LS drops",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon --max-old-space-size=2048 index.js -e js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/david1602/lslogger.git"
+    },
+    "keywords": [
+        "ls",
+        "log"
+    ],
+    "author": "David Dernovoj",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/david1602/lslogger/issues"
+    },
+    "homepage": "https://github.com/david1602/lslogger#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "express-catch": "^1.0.0",
+        "nodemon": "^1.19.4"
+    }
+}
