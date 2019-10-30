@@ -4,6 +4,8 @@ const wrapCatch = require('express-catch');
 const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
+const https = require('https');
+const { getItemList } = require('./utils');
 
 const PORT = 8000;
 
@@ -40,8 +42,16 @@ const init = async function() {
     server.use(middleware);
 
     router.get('/data', async function(req, res) {
-        console.log('data');
-        res.json({});
+        const items = getItemList();
+
+        const style = `<style>table, th, td {border: 1px solid black;}</style>`;
+
+        const tables = fs
+            .readdirSync('evaluations')
+            .sort()
+            .map(file => require(path.resolve('evaluations', file))(items));
+
+        res.send(`${style}${tables.join('<br><br>')}`);
     });
 
     router.post('/data', async function(req, res) {
@@ -50,8 +60,19 @@ const init = async function() {
         res.json({ n: 1 });
     });
 
-    server.listen(PORT);
-    console.log(`Listening to port ${PORT}`);
+    https
+        .createServer(
+            {
+                key: fs.readFileSync('/certs/privkey1.pem'),
+                cert: fs.readFileSync('/certs/cert1.pem'),
+                ca: fs.readFileSync('/certs/chain1.pem')
+            },
+            server
+        )
+        .listen(PORT, () => {
+            console.log(`Listening to port ${PORT}`);
+        });
+    // server.listen(PORT);
 };
 
 init();
