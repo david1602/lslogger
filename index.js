@@ -42,7 +42,20 @@ const init = async function() {
     server.use(middleware);
 
     router.get('/data', async function(req, res) {
-        const items = getItemList();
+        const { query } = req;
+
+        const filterFn = value => {
+            const conditions = [];
+
+            if (query.minlevel) conditions.push(value.charLevel >= parseInt(query.minlevel, 10));
+            if (query.maxlevel) conditions.push(value.charLevel <= parseInt(query.maxlevel, 10));
+
+            if (conditions.length === 0) return true;
+
+            return conditions.every(cond => !!cond);
+        };
+
+        const items = getItemList(filterFn);
 
         const style = `<style>table, th, td {border: 1px solid black;}</style>`;
 
@@ -55,7 +68,7 @@ const init = async function() {
     });
 
     router.post('/data', async function(req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         writeData(req.body);
         res.json({ n: 1 });
     });
