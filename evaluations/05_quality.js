@@ -18,13 +18,12 @@ module.exports = function(data) {
     result.push({ quality: 'Total', count: total, countLabel: `${total} (100%)` });
 
     const table = generateTable(
-        ['quality', 'countLabel', 'averageTier', 'averageQuality'],
+        ['quality', 'countLabel', 'averageTier'],
         result,
         {
             quality: 'Item Quality',
             countLabel: 'Amount of spawns',
-            averageTier: 'Average Tier',
-            averageQuality: 'Average Quality'
+            averageTier: 'Average Tier'
         },
         'Quality:'
     );
