@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-exports.getItemList = function () {
+exports.getItemList = function(filterFn) {
     const files = fs.readdirSync(path.resolve('data'));
 
     const agg = {};
@@ -20,7 +20,11 @@ exports.getItemList = function () {
         });
     });
 
-    const data = Object.keys(agg).reduce((prev, key) => prev.concat(agg[key]), []);
+    let data = Object.keys(agg).reduce((prev, key) => prev.concat(agg[key]), []);
+
+    if ('function' === typeof filterFn) {
+        data = data.filter(filterFn);
+    }
 
     const condensedData = data.reduce(
         (agg, item) => {
@@ -29,7 +33,6 @@ exports.getItemList = function () {
                 if (!agg.stats[stat]) agg.stats[stat] = [];
 
                 agg.stats[stat].push(item.stats[stat]);
-
             });
             // Log tiers
             if (!agg.tiers[item.tier]) agg.tiers[item.tier] = [];
@@ -54,13 +57,17 @@ exports.getItemList = function () {
                 quality: item.quality
             });
 
+            if (!agg.quality[item.quality]) agg.quality[item.quality] = [];
+
+            agg.quality[item.quality].push(item.tier);
+
             return agg;
         },
         { stats: {}, tiers: {}, quality: {}, itemType: {}, category: {} }
     );
 
     return condensedData;
-}
+};
 
 exports.generateTable = (keys, arr, labelMap, title) => {
     return `
@@ -74,11 +81,11 @@ exports.generateTable = (keys, arr, labelMap, title) => {
         <tbody>
             ${arr.map(record => `<tr>${keys.map(key => `<td>${record[key] || ''}</td>`).join('')}</tr>`).join('')}
         </tbody>
-    </table>`
-}
+    </table>`;
+};
 
 exports.sort = prop => (a, b) => {
     if (a[prop] < b[prop]) return 1;
     if (a[prop] > b[prop]) return -1;
     return 0;
-}
+};
