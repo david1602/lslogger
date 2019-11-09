@@ -1,6 +1,32 @@
 const fs = require('fs');
 const path = require('path');
 
+const archive = [];
+
+{
+    const files = fs.readdirSync(path.resolve('archivedata'));
+
+    const agg = {};
+
+    files.forEach(file => {
+        const content = JSON.parse(fs.readFileSync(path.resolve('archivedata', file), { encoding: 'utf-8' }));
+
+        content.forEach(item => {
+            const { ts } = item;
+
+            if (!agg[ts]) agg[ts] = [];
+
+            const exists = agg[ts].find(a => Object.keys(a.stats).every(key => a.stats[key] === item.stats[key]));
+
+            if (!exists) agg[ts].push(item);
+        });
+    });
+
+    Object.keys(agg)
+        .reduce((prev, key) => prev.concat(agg[key]), [])
+        .forEach(v => archive.push(v));
+}
+
 exports.getItemList = function(filterFn) {
     const files = fs.readdirSync(path.resolve('data'));
 
@@ -20,7 +46,9 @@ exports.getItemList = function(filterFn) {
         });
     });
 
-    let data = Object.keys(agg).reduce((prev, key) => prev.concat(agg[key]), []);
+    let data = Object.keys(agg)
+        .reduce((prev, key) => prev.concat(agg[key]), [])
+        .concat(archive);
 
     if ('function' === typeof filterFn) {
         data = data.filter(filterFn);
