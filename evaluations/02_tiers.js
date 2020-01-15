@@ -11,15 +11,16 @@ module.exports = function(data) {
     }, {});
 
     const totalTiers = Object.keys(resultTiers).reduce((prev, tier) => prev + data.tiers[tier].length, 0);
-
+    let cumulativePercent = 0;
     const tierTable = generateTable(
-        ['tier', 'countLabel', 'average'],
+        ['tier', 'countLabel', 'average', 'cumulativePercent'],
         Object.keys(resultTiers)
             .map(tier => ({
                 tier,
                 count: resultTiers[tier].count,
                 countLabel: `${resultTiers[tier].count} (${round((resultTiers[tier].count / totalTiers) * 100, 2)}%)`,
-                average: round(resultTiers[tier].average, 4)
+                average: round(resultTiers[tier].average, 4),
+                cumulativePercent: (cumulativePercent = round(cumulativePercent + (resultTiers[tier].count / totalTiers) * 100, 2))
             }))
             .sort(sort('count'))
             .concat({
@@ -30,7 +31,8 @@ module.exports = function(data) {
         {
             tier: 'Item Tier',
             countLabel: 'Amount of spawns',
-            average: 'Average Quality'
+            average: 'Average Quality',
+            cumulativePercent: 'Cumulative %'
         },
         'Item Tiers:'
     );
