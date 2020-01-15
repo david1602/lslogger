@@ -3,6 +3,8 @@ const path = require('path');
 
 const archive = [];
 
+const fileLoaded = {};
+
 {
     const files = fs.readdirSync(path.resolve('archivedata'));
 
@@ -26,6 +28,7 @@ const archive = [];
         .reduce((prev, key) => prev.concat(agg[key]), [])
         .forEach(v => archive.push(v));
 }
+// fs.writeFileSync('data.json', JSON.stringify(archive, null, 4));
 
 exports.getItemList = function(filterFn) {
     const files = fs.readdirSync(path.resolve('data'));
@@ -33,6 +36,8 @@ exports.getItemList = function(filterFn) {
     const agg = {};
 
     files.forEach(file => {
+        if (fileLoaded[file]) return;
+
         const content = JSON.parse(fs.readFileSync(path.resolve('data', file), { encoding: 'utf-8' }));
 
         content.forEach(item => {
@@ -44,11 +49,15 @@ exports.getItemList = function(filterFn) {
 
             if (!exists) agg[ts].push(item);
         });
+
+        fileLoaded[file] = true;
     });
 
-    let data = Object.keys(agg)
-        .reduce((prev, key) => prev.concat(agg[key]), [])
-        .concat(archive);
+    let data = Object.keys(agg).reduce((prev, key) => prev.concat(agg[key]), []);
+
+    data.forEach(r => archive.push(r));
+
+    data = archive;
 
     if ('function' === typeof filterFn) {
         data = data.filter(filterFn);
@@ -59,6 +68,35 @@ exports.getItemList = function(filterFn) {
             // Log stats
             Object.keys(item.stats).forEach(stat => {
                 if (!agg.stats[stat]) agg.stats[stat] = [];
+
+                // Max stat by tier
+                if (!agg.maxStat[stat])
+                    agg.maxStat[stat] = {
+                        overall: -1,
+                        1: -1,
+                        2: -1,
+                        3: -1,
+                        4: -1,
+                        5: -1,
+                        6: -1,
+                        7: -1,
+                        8: -1,
+                        9: -1,
+                        10: -1,
+                        11: -1,
+                        12: -1,
+                        13: -1,
+                        14: -1
+                    };
+
+                const statValue = item.stats[stat];
+
+                // If the cached value (initialized at -1)
+                // is smaller than the current stat, it's a new maximum for that tier
+                if (agg.maxStat[stat][item.tier] < statValue) agg.maxStat[stat][item.tier] = statValue;
+
+                // Same for the overall
+                if (agg.maxStat[stat].overall < statValue) agg.maxStat[stat].overall = statValue;
 
                 agg.stats[stat].push(item.stats[stat]);
             });
@@ -76,6 +114,8 @@ exports.getItemList = function(filterFn) {
                 quality: item.quality
             });
 
+            if (['warhammer', 'spear', 'longsword', 'battleaxe', 'polearm'].includes(item.itemType)) item.category = 'Heavy Weapons';
+
             // Log categories
             if (!agg.category[item.category]) agg.category[item.category] = [];
 
@@ -91,7 +131,7 @@ exports.getItemList = function(filterFn) {
 
             return agg;
         },
-        { stats: {}, tiers: {}, quality: {}, itemType: {}, category: {} }
+        { stats: {}, tiers: {}, quality: {}, itemType: {}, category: {}, maxStat: {} }
     );
 
     return condensedData;
