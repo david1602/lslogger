@@ -67,6 +67,18 @@ const init = async function() {
         res.send(`${style}${tables.join('<br><br>')}`);
     });
 
+    router.get('/list', async function(req, res) {
+        if (!fs.existsSync('list.txt')) {
+            res.status(404).send('Could not find the sale list.');
+            return;
+        }
+
+        const list = fs.readFileSync('list.txt', { encoding: 'utf-8' });
+        res.send(`<pre>
+${list}
+</pre>`);
+    });
+
     router.post('/data', async function(req, res) {
         // console.log(req.body);
         writeData(req.body);
