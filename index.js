@@ -76,9 +76,9 @@ const init = async function() {
     https
         .createServer(
             {
-                key: fs.readFileSync('/certs/privkey1.pem'),
-                cert: fs.readFileSync('/certs/cert1.pem'),
-                ca: fs.readFileSync('/certs/chain1.pem')
+                key: fs.readFileSync('/certs/privkey3.pem'),
+                cert: fs.readFileSync('/certs/cert3.pem'),
+                ca: fs.readFileSync('/certs/chain3.pem')
             },
             server
         )
