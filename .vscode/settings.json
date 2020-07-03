@@ -1,0 +1,50 @@
+{
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "prettier.printWidth": 180,
+    "prettier.singleQuote": true,
+    "editor.wordBasedSuggestions": true,
+    "window.zoomLevel": 0,
+    "editor.snippetSuggestions": "top",
+    "prettier.tabWidth": 4,
+    "files.eol": "\n",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "editor.minimap.enabled": false,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.formatOnSave": true
+    },
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "prettier.arrowParens": "avoid",
+    "prettier.trailingComma": "none",
+    "prettier.flattenTernaries": true,
+    "files.maxMemoryForLargeFilesMB": 16384,
+    "vetur.format.defaultFormatter.html": "none",
+    "html.format.enable": false,
+    "terminal.integrated.rendererType": "canvas",
+    "explorer.confirmDragAndDrop": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "explorer.confirmDelete": false,
+    "[go]": {
+        "editor.formatOnSave": true
+    },
+    "go.useLanguageServer": false,
+    "go.formatTool": "gofmt",
+    "remote.SSH.remotePlatform": {
+        "localhost": "linux",
+        "192.168.1.140": "linux"
+    }
+}
