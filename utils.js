@@ -30,13 +30,16 @@ const fileLoaded = {};
 }
 // fs.writeFileSync('data.json', JSON.stringify(archive, null, 4));
 
-exports.getItemList = function(filterFn) {
+exports.getItemList = function (filterFn) {
     const files = fs.readdirSync(path.resolve('data'));
 
     const agg = {};
+    let data = [];
+
 
     files.forEach(file => {
         if (fileLoaded[file]) return;
+
 
         const content = JSON.parse(fs.readFileSync(path.resolve('data', file), { encoding: 'utf-8' }));
 
@@ -47,13 +50,21 @@ exports.getItemList = function(filterFn) {
 
             const exists = agg[ts].find(a => Object.keys(a.stats).every(key => a.stats[key] === item.stats[key]));
 
-            if (!exists) agg[ts].push(item);
+            if (!exists) {
+                agg[ts].push(item);
+                data.push(item);
+            }
         });
 
         fileLoaded[file] = true;
     });
 
-    let data = Object.keys(agg).reduce((prev, key) => prev.concat(agg[key]), []);
+    // const keys = Object.keys(agg);
+    // let data = [];
+
+    // keys.forEach(k => agg[k].forEach(r => data.push(r)));
+
+    // let data = Object.keys(agg).reduce((prev, key) => prev.concat(agg[key]), []);
 
     data.forEach(r => archive.push(r));
 
