@@ -21,7 +21,7 @@ const writeData = data => {
 
 const server = express();
 
-const middleware = async function(req, res, next) {
+const middleware = async function (req, res, next) {
     res.set({
         'Access-Control-Allow-Origin': [req.get('origin')],
         'Access-Control-Allow-Credentials': true,
@@ -35,13 +35,13 @@ const middleware = async function(req, res, next) {
     return next();
 };
 
-const init = async function() {
+const init = async function () {
     server.use(bodyParser.json({ limit: '5mb' }));
     const router = wrapCatch(server);
 
     server.use(middleware);
 
-    router.get('/data', async function(req, res) {
+    router.get('/data', async function (req, res) {
         const { query } = req;
 
         const filterFn = value => {
@@ -67,25 +67,27 @@ const init = async function() {
         res.send(`${style}${tables.join('<br><br>')}`);
     });
 
-    router.post('/data', async function(req, res) {
+    router.post('/data', async function (req, res) {
         // console.log(req.body);
         writeData(req.body);
         res.json({ n: 1 });
     });
 
-    https
-        .createServer(
-            {
-                key: fs.readFileSync('/certs/privkey3.pem'),
-                cert: fs.readFileSync('/certs/cert3.pem'),
-                ca: fs.readFileSync('/certs/chain3.pem')
-            },
-            server
-        )
-        .listen(PORT, () => {
-            console.log(`Listening to port ${PORT}`);
-        });
-    // server.listen(PORT);
+    // https
+    //     .createServer(
+    //         {
+    //             key: fs.readFileSync('/certs/privkey3.pem'),
+    //             cert: fs.readFileSync('/certs/cert3.pem'),
+    //             ca: fs.readFileSync('/certs/chain3.pem')
+    //         },
+    //         server
+    //     )
+    //     .listen(PORT, () => {
+    //         console.log(`Listening to port ${PORT}`);
+    //     });
+    server.listen(PORT, function () {
+        console.log(`Listening to port ${PORT}`);
+    });
 };
 
 init();
