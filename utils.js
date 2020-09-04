@@ -168,3 +168,19 @@ exports.sort = prop => (a, b) => {
     if (a[prop] > b[prop]) return -1;
     return 0;
 };
+
+exports.formatTime = ms => {
+    let seconds = parseInt(ms / 1000, 10);
+
+    const hours = parseInt(seconds / 3600, 10);
+
+    seconds = seconds - hours * 3600;
+
+    const minutes = parseInt(seconds / 60, 10);
+
+    seconds = seconds - minutes * 60;
+
+    const lpad = n => `${n < 10 ? '0' : ''}${n}`;
+
+    return `${lpad(hours)}:${lpad(minutes)}:${lpad(seconds)}`;
+};
