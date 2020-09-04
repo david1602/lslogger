@@ -1,0 +1,1012 @@
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .arctic {
+                background-color: rgb(224,241,255);
+                color: #444444;
+            }
+
+.beach {
+                background-color: rgb(255,235,205);
+                color: #444444;
+            }
+
+.forest {
+                background-color: rgb(38,106,46);
+                color: #111111;
+            }
+
+.mountain {
+                background-color: rgb(150,141,153);
+                color: #222222;
+            }
+
+.electriver {
+                background-color: rgb(125,249,255);
+                color: #222222;
+            }
+
+.magteau {
+                background-color: rgb(93,93,93);
+                color: #000000;
+            }
+
+.plains {
+                background-color: rgb(98,104,55);
+                color: #111111;
+            }
+
+.valley {
+                background-color: rgb(142,106,21);
+                color: #222222;
+            }
+
+.desert {
+                background-color: rgb(237,201,175);
+                color: #444444;
+            }
+
+.volcano {
+                background-color: rgb(200,116,84);
+                color: #222222;
+            }
+
+        img {
+            height: 64px;
+            width: 64px;
+        }
+
+        .melee {
+            background-color: red;
+        }
+
+        .caster {
+            background-color: blue;
+        }
+
+        .group {
+            border: 3px solid black;
+        }
+
+        .bubble {
+            opacity: 0.6;
+            border-radius: 100px;
+            height: 86px;
+            width: 86px;
+            position: absolute;
+            top: calc(50% - 43px);
+            left: calc(50% - 43px);
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 150px;
+            width: 150px;
+        }
+
+        .flex-center {
+            justify-content: center !important;
+        }
+    </style>
+
+    <html>
+        <body>
+            <table>
+            <tr>
+                    <td class="electriver">
+                                    <div class="flex flex-center">
+                                    electriver<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    electrowisp<br>
+                                    
+                                    
+                                    <div><img src="pics/mob7.svg"/></div>
+                                    <br/> moves
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    currenahna<br>
+                                    
+                                    
+                                    <div><img src="pics/mob29.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    azapnid<br>
+                                    
+                                    
+                                    <div><img src="pics/mob4.svg"/></div>
+                                    <br/> multiplier (0&nbsp;hp)
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    shocktooth<br>
+                                    
+                                    
+                                    <div><img src="pics/mob76.svg"/></div>
+                                    <br/> light+melee attack
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    voltseeker<br>
+                                    
+                                    
+                                    <div><img src="pics/mob84.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    incapacitor<br>
+                                    
+                                    
+                                    <div><img src="pics/mob27.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    seevil<br>
+                                    
+                                    <div class="rel"><img src="pics/mob88.svg"/><div class="bubble group caster"></div></div>
+                                    
+                                    <br/> group caster shield
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    electangle<br>
+                                    
+                                    
+                                    <div><img src="pics/mob70.svg"/></div>
+                                    <br/> swaps spots<br/>calls for help
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    sparkelfish<br>
+                                    
+                                    
+                                    <div><img src="pics/mob78.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="electriver">
+                                    <div class="flex">
+                                    stormtalon<br>
+                                    
+                                    
+                                    <div><img src="pics/mob41.svg"/></div>
+                                    -
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="magteau">
+                                    <div class="flex flex-center">
+                                    magteau<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    magaton<br>
+                                    
+                                    
+                                    <div><img src="pics/mob64.svg"/></div>
+                                    <br/> crit boost
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    sinseerical<br>
+                                    
+                                    <div class="rel"><img src="pics/mob74.svg"/><div class="bubble  caster"></div></div>
+                                    
+                                    <br/> caster shield
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    needleback<br>
+                                    
+                                    
+                                    <div><img src="pics/mob75.svg"/></div>
+                                    <br/> melee counter attack
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    boaurora<br>
+                                    
+                                    
+                                    <div><img src="pics/mob42.svg"/></div>
+                                    <br/> push single
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    posiaclawn<br>
+                                    
+                                    
+                                    <div><img src="pics/mob79.svg"/></div>
+                                    <br/> ???
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    magneticrawler<br>
+                                    
+                                    
+                                    <div><img src="pics/mob61.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    subsorber<br>
+                                    
+                                    
+                                    <div><img src="pics/mob52.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    huntracter<br>
+                                    
+                                    
+                                    <div><img src="pics/mob17.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    electromagon<br>
+                                    
+                                    
+                                    <div><img src="pics/mob15.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="magteau">
+                                    <div class="flex">
+                                    repelican<br>
+                                    
+                                    
+                                    <div><img src="pics/mob80.svg"/></div>
+                                    <br/> reflects light
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="desert">
+                                    <div class="flex flex-center">
+                                    desert<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    scorparcher<br>
+                                    
+                                    
+                                    <div><img src="pics/mob71.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    hieramosickles<br>
+                                    
+                                    
+                                    <div><img src="pics/mob16.svg"/></div>
+                                    <br/> temp melee boost
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    searpent<br>
+                                    
+                                    
+                                    <div><img src="pics/mob54.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    uniscorchus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob83.svg"/></div>
+                                    <br/> fire mastery
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    dunebug<br>
+                                    
+                                    
+                                    <div><img src="pics/mob13.svg"/></div>
+                                    <br/> temp +HM%
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    chargon<br>
+                                    
+                                    
+                                    <div><img src="pics/mob8.svg"/></div>
+                                    <br/> fire multi attack
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    barrenray<br>
+                                    
+                                    
+                                    <div><img src="pics/mob69.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    sunwisp<br>
+                                    
+                                    
+                                    <div><img src="pics/mob51.svg"/></div>
+                                    <br/> fire counter attack
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    mantaprey<br>
+                                    
+                                    
+                                    <div><img src="pics/mob38.svg"/></div>
+                                    <br/> stunner
+                                    </div>
+                                </td><td class="desert">
+                                    <div class="flex">
+                                    demonog<br>
+                                    
+                                    
+                                    <div><img src="pics/mob24.svg"/></div>
+                                    -
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="volcano">
+                                    <div class="flex flex-center">
+                                    volcano<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    moltengrabba<br>
+                                    
+                                    
+                                    <div><img src="pics/mob47.svg"/></div>
+                                    <br/> fire immune
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    blistorb<br>
+                                    
+                                    
+                                    <div><img src="pics/mob14.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    frisp<br>
+                                    
+                                    
+                                    <div><img src="pics/mob21.svg"/></div>
+                                    <br/> multiplies
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    hotchet<br>
+                                    
+                                    
+                                    <div><img src="pics/mob49.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    mygmops<br>
+                                    
+                                    
+                                    <div><img src="pics/mob12.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    charcoaleton<br>
+                                    
+                                    
+                                    <div><img src="pics/mob36.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    fremlin<br>
+                                    
+                                    
+                                    <div><img src="pics/mob23.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    cinderfella<br>
+                                    
+                                    
+                                    <div><img src="pics/mob1.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    lavoulder<br>
+                                    
+                                    
+                                    <div><img src="pics/mob65.svg"/></div>
+                                    <br/> fire+melee attack
+                                    </div>
+                                </td><td class="volcano">
+                                    <div class="flex">
+                                    fizzypup<br>
+                                    
+                                    
+                                    <div><img src="pics/mob94.svg"/></div>
+                                    <br/> fire double attack
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="mountain">
+                                    <div class="flex flex-center">
+                                    mountain<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    peaktrice<br>
+                                    
+                                    
+                                    <div><img src="pics/mob10.svg"/></div>
+                                    <br/> stunner
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    rocktopus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob48.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    wyrmbat<br>
+                                    
+                                    
+                                    <div><img src="pics/mob91.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    slugger<br>
+                                    
+                                    
+                                    <div><img src="pics/mob35.svg"/></div>
+                                    <br/> earth immune
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    rawrgoyle<br>
+                                    
+                                    
+                                    <div><img src="pics/mob33.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    twintile<br>
+                                    
+                                    
+                                    <div><img src="pics/mob34.svg"/></div>
+                                    <br/> melee double attack
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    pawfulgore<br>
+                                    
+                                    
+                                    <div><img src="pics/mob67.svg"/></div>
+                                    <br/> temp quick draw
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    albadross<br>
+                                    
+                                    
+                                    <div><img src="pics/mob30.svg"/></div>
+                                    <br/> back melee multi
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    clifftanger<br>
+                                    
+                                    
+                                    <div><img src="pics/mob31.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="mountain">
+                                    <div class="flex">
+                                    reduca<br>
+                                    
+                                    
+                                    <div><img src="pics/mob72.svg"/></div>
+                                    -
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="arctic">
+                                    <div class="flex flex-center">
+                                    arctic<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    darknice<br>
+                                    
+                                    
+                                    <div><img src="pics/mob26.svg"/></div>
+                                    <br/> mana drain
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    tonguerus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob3.svg"/></div>
+                                    <br/> heal frenzy
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    slugslider<br>
+                                    
+                                    
+                                    <div><img src="pics/mob89.svg"/></div>
+                                    <br/> calls for help
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    doomglider<br>
+                                    
+                                    
+                                    <div><img src="pics/mob22.svg"/></div>
+                                    <br/> melee double attack
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    scavengfur<br>
+                                    
+                                    
+                                    <div><img src="pics/mob56.svg"/></div>
+                                    <br/> ice immune
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    glazier<br>
+                                    
+                                    
+                                    <div><img src="pics/mob45.svg"/></div>
+                                    <br/> ice+melee attack<br/>melee multi attack
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    freaver<br>
+                                    
+                                    
+                                    <div><img src="pics/mob57.svg"/></div>
+                                    <br/> stunner
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    frigadoon<br>
+                                    
+                                    
+                                    <div><img src="pics/mob59.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    brrraptor<br>
+                                    
+                                    
+                                    <div><img src="pics/mob19.svg"/></div>
+                                    <br/> ice multi attack
+                                    </div>
+                                </td><td class="arctic">
+                                    <div class="flex">
+                                    frostivil<br>
+                                    
+                                    
+                                    <div><img src="pics/mob32.svg"/></div>
+                                    <br/> ice double attack
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="forest">
+                                    <div class="flex flex-center">
+                                    forest<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    floraworm<br>
+                                    
+                                    
+                                    <div><img src="pics/mob87.svg"/></div>
+                                    <br/> puller
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    trunkiller<br>
+                                    
+                                    
+                                    <div><img src="pics/mob96.svg"/></div>
+                                    <br/> front melee multi
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    treeslug<br>
+                                    
+                                    
+                                    <div><img src="pics/mob92.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    debrivil<br>
+                                    
+                                    
+                                    <div><img src="pics/mob90.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    sproutiger<br>
+                                    
+                                    
+                                    <div><img src="pics/mob86.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    bloodrat<br>
+                                    
+                                    
+                                    <div><img src="pics/mob18.svg"/></div>
+                                    <br/> life steal
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    mantrap<br>
+                                    
+                                    
+                                    <div><img src="pics/mob5.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    gigapede<br>
+                                    
+                                    
+                                    <div><img src="pics/mob37.svg"/></div>
+                                    <br/> melee multi attack
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    barkodile<br>
+                                    
+                                    
+                                    <div><img src="pics/mob2.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="forest">
+                                    <div class="flex">
+                                    taga<br>
+                                    
+                                    
+                                    <div><img src="pics/mob46.svg"/></div>
+                                    -
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="plains">
+                                    <div class="flex flex-center">
+                                    plains<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    porcuball<br>
+                                    
+                                    
+                                    <div><img src="pics/mob6.svg"/></div>
+                                    <br/> melee multi attack
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    wind-o-shade<br>
+                                    
+                                    
+                                    <div><img src="pics/mob40.svg"/></div>
+                                    <br/> moves
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    gustfly<br>
+                                    
+                                    
+                                    <div><img src="pics/mob28.svg"/></div>
+                                    <br/> push group
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    camouslauge<br>
+                                    
+                                    
+                                    <div><img src="pics/mob82.svg"/></div>
+                                    <br/> multiplies
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    gigabee<br>
+                                    
+                                    
+                                    <div><img src="pics/mob97.svg"/></div>
+                                    <br/> multiplies(x2)
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    bloodbunny<br>
+                                    
+                                    
+                                    <div><img src="pics/mob68.svg"/></div>
+                                    <br/> heals
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    razortail<br>
+                                    
+                                    
+                                    <div><img src="pics/mob77.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    elephoerectus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob44.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    kangarel<br>
+                                    
+                                    
+                                    <div><img src="pics/mob55.svg"/></div>
+                                    <br/> flees
+                                    </div>
+                                </td><td class="plains">
+                                    <div class="flex">
+                                    glyger<br>
+                                    
+                                    
+                                    <div><img src="pics/mob85.svg"/></div>
+                                    <br/> heals
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="beach">
+                                    <div class="flex flex-center">
+                                    beach<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    slamander<br>
+                                    
+                                    
+                                    <div><img src="pics/mob11.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    clawgel<br>
+                                    
+                                    
+                                    <div><img src="pics/mob58.svg"/></div>
+                                    <br/> multi heal
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    sharfin<br>
+                                    
+                                    
+                                    <div><img src="pics/mob73.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    razorpus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob39.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    aqueous<br>
+                                    
+                                    
+                                    <div><img src="pics/mob9.svg"/></div>
+                                    <br/> shrink
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    ballrus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob98.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    reptigon<br>
+                                    
+                                    
+                                    <div><img src="pics/mob99.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    goocidic<br>
+                                    <div class="rel"><img src="pics/mob25.svg"/><div class="bubble  melee"></div></div>
+                                    
+                                    
+                                    <br/> melee shield
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    walktopus<br>
+                                    
+                                    
+                                    <div><img src="pics/mob53.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="beach">
+                                    <div class="flex">
+                                    shonark<br>
+                                    
+                                    
+                                    <div><img src="pics/mob20.svg"/></div>
+                                    -
+                                    </div>
+                                </td>
+                    </tr><tr>
+                    <td class="valley">
+                                    <div class="flex flex-center">
+                                    valley<br>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    huntaguar<br>
+                                    
+                                    
+                                    <div><img src="pics/mob0.svg"/></div>
+                                    <br/> wind+melee attack
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    windragon<br>
+                                    
+                                    
+                                    <div><img src="pics/mob43.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    wrizard<br>
+                                    
+                                    
+                                    <div><img src="pics/mob50.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    foglime<br>
+                                    <div class="rel"><img src="pics/mob60.svg"/><div class="bubble group melee"></div></div>
+                                    
+                                    
+                                    <br/> group melee shield
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    prowlion<br>
+                                    
+                                    
+                                    <div><img src="pics/mob62.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    torrentile<br>
+                                    
+                                    
+                                    <div><img src="pics/mob63.svg"/></div>
+                                    <br/> wind multi attack
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    tornalisk<br>
+                                    
+                                    
+                                    <div><img src="pics/mob66.svg"/></div>
+                                    <br/> wind multi attack
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    hornicorn<br>
+                                    
+                                    
+                                    <div><img src="pics/mob81.svg"/></div>
+                                    <br/> push single<br/>back melee multi
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    gargrrryl<br>
+                                    
+                                    
+                                    <div><img src="pics/mob93.svg"/></div>
+                                    -
+                                    </div>
+                                </td><td class="valley">
+                                    <div class="flex">
+                                    misticle<br>
+                                    
+                                    
+                                    <div><img src="pics/mob95.svg"/></div>
+                                    -
+                                    </div>
+                                </td>
+                    </tr>
+            </table>
+        </body>
+    </html>
+    
