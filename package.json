@@ -23,7 +23,7 @@
     "dependencies": {
         "express": "^4.17.1",
         "express-catch": "^1.0.0",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.21",
         "nodemon": "^1.19.4"
     }
 }
